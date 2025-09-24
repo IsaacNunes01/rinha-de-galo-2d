@@ -1,2 +1,4 @@
 # rinha-de-galo-2d
-Magnificent cock duel
+Magnificent cock duel.
+Inspirado nas melhores rinhas de galo ao redor do globo, Rinha de Galo 2D é um jogo magnífico que não machucou nenhum galo em sua produção e foi feito no Godot com maior capricho para agradar os corações da GameLab. Este game é totalmente permitido pela lei. 
+Seu adversário no ringue é um galo feroz e musculoso, louco pra te arrebentar. VOCÊ é um galo fraco demais e medroso, porém é inteligente. Para ganhar a luta (sair vivo), você percebe que precisa comer todos os besouros perdidos pelo ringue que sustentam as numerosas fibras musculares do galo feroz, antes que ele reabasteça suas energias comendo os besouros. Tem trilha sonora também.
