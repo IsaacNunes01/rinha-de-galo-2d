@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=3 format=3 uid="uid://d11k6gms7tue1"]
+
+[ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x3fby"]
 
 [node name="Ringue" type="Node2D"]
+
+[node name="Galo Medroso" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Galo Medroso"]
+texture = ExtResource("1_1hyog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso"]
+shape = SubResource("CircleShape2D_x3fby")
