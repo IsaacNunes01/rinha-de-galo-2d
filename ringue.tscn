@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=6 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
+[ext_resource type="Script" path="res://galo_medroso.gd" id="2_4mphk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4ip"]
+size = Vector2(1154, 71)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3fby"]
 radius = 57.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lu5b5"]
-size = Vector2(1153.5, 68.5)
 
 [node name="Ringue" type="Node2D"]
 
@@ -16,7 +17,14 @@ position = Vector2(576, 325.25)
 scale = Vector2(0.96, 1.03413)
 texture = ExtResource("1_814x0")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 616.5)
+shape = SubResource("RectangleShape2D_5s4ip")
+
 [node name="Galo Medroso" type="CharacterBody2D" parent="."]
+script = ExtResource("2_4mphk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Galo Medroso"]
 position = Vector2(101, 503)
@@ -26,9 +34,3 @@ texture = ExtResource("1_1hyog")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso"]
 position = Vector2(101, 503)
 shape = SubResource("CircleShape2D_x3fby")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(575.25, 616.25)
-shape = SubResource("RectangleShape2D_lu5b5")
