@@ -1,36 +1,94 @@
-[gd_scene load_steps=6 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=9 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
 [ext_resource type="Script" path="res://galo_medroso.gd" id="2_4mphk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4ip"]
-size = Vector2(1154, 71)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_x3fby"]
 radius = 57.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l13kt"]
+size = Vector2(62, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tmq2"]
+size = Vector2(59, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4ip"]
+size = Vector2(1154, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrd5"]
+size = Vector2(543, 21)
+
 [node name="Ringue" type="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 325.25)
+position = Vector2(578, 321)
 scale = Vector2(0.96, 1.03413)
 texture = ExtResource("1_814x0")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(576, 616.5)
-shape = SubResource("RectangleShape2D_5s4ip")
+metadata/_edit_lock_ = true
 
 [node name="Galo Medroso" type="CharacterBody2D" parent="."]
+position = Vector2(66, 515)
 script = ExtResource("2_4mphk")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Galo Medroso"]
-position = Vector2(101, 503)
+position = Vector2(0, 1)
 scale = Vector2(0.276, 0.264)
 texture = ExtResource("1_1hyog")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso"]
-position = Vector2(101, 503)
 shape = SubResource("CircleShape2D_x3fby")
+metadata/_edit_lock_ = true
+
+[node name="Suporte oponente" type="StaticBody2D" parent="."]
+position = Vector2(898, 397)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suporte oponente"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_l13kt")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Suporte oponente"]
+offset_left = -30.0
+offset_top = -10.0
+offset_right = 32.0
+offset_bottom = 10.0
+color = Color(0.454902, 0.0823529, 0.160784, 1)
+metadata/_edit_lock_ = true
+
+[node name="Suporte jogador" type="StaticBody2D" parent="."]
+position = Vector2(300, 398)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suporte jogador"]
+position = Vector2(-2.5, 0.5)
+shape = SubResource("RectangleShape2D_1tmq2")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Suporte jogador"]
+offset_left = -32.0
+offset_top = -7.0
+offset_right = 27.0
+offset_bottom = 8.0
+color = Color(0.32549, 0.0470588, 0.0705882, 1)
+metadata/_edit_lock_ = true
+
+[node name="Chão" type="StaticBody2D" parent="."]
+position = Vector2(577, 608)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão"]
+shape = SubResource("RectangleShape2D_5s4ip")
+metadata/_edit_lock_ = true
+
+[node name="Cerca central" type="StaticBody2D" parent="."]
+position = Vector2(612, 213)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cerca central"]
+position = Vector2(-11.5, 0)
+shape = SubResource("RectangleShape2D_qlrd5")
+metadata/_edit_lock_ = true
