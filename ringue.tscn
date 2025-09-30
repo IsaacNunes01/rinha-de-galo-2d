@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=12 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
 [ext_resource type="Script" path="res://galo_medroso.gd" id="2_4mphk"]
+[ext_resource type="Script" path="res://galo_feroz.gd" id="4_aa60y"]
+[ext_resource type="Texture2D" uid="uid://dooykx4ftlkxu" path="res://galoferoz-removebg-preview.png" id="4_vxqe4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x3fby"]
-radius = 57.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_canuv"]
+radius = 34.0
+height = 116.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l13kt"]
 size = Vector2(62, 20)
@@ -19,11 +22,15 @@ size = Vector2(1154, 71)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrd5"]
 size = Vector2(543, 21)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttt4b"]
+radius = 39.0
+height = 134.0
+
 [node name="Ringue" type="Node2D"]
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(578, 321)
+position = Vector2(576, 326)
 scale = Vector2(0.96, 1.03413)
 texture = ExtResource("1_814x0")
 metadata/_edit_lock_ = true
@@ -40,11 +47,12 @@ texture = ExtResource("1_1hyog")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso"]
-shape = SubResource("CircleShape2D_x3fby")
+shape = SubResource("CapsuleShape2D_canuv")
 metadata/_edit_lock_ = true
 
 [node name="Suporte oponente" type="StaticBody2D" parent="."]
 position = Vector2(898, 397)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suporte oponente"]
 position = Vector2(1, 0)
@@ -91,4 +99,39 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cerca central"]
 position = Vector2(-11.5, 0)
 shape = SubResource("RectangleShape2D_qlrd5")
+metadata/_edit_lock_ = true
+
+[node name="Cerca esquerda" type="StaticBody2D" parent="."]
+position = Vector2(145, 180)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cerca esquerda"]
+position = Vector2(-32.5495, 4.19647)
+scale = Vector2(3.45052, 1.05613)
+polygon = PackedVector2Array(-31.4302, -35.2195, 29.4302, 1.70767, 29.72, 22.5384, -32.0098, -14.3888)
+metadata/_edit_lock_ = true
+
+[node name="Cerca direita" type="StaticBody2D" parent="."]
+position = Vector2(1041, 193)
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cerca direita"]
+position = Vector2(18, 10)
+scale = Vector2(9.3, 3.3)
+polygon = PackedVector2Array(10.1075, -10.6061, -10.1075, -1.21212, -10, 4.54546, 10, -4.54545)
+metadata/_edit_lock_ = true
+
+[node name="Galo Feroz" type="CharacterBody2D" parent="."]
+position = Vector2(980, 482)
+script = ExtResource("4_aa60y")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Galo Feroz"]
+scale = Vector2(0.42278, 0.406639)
+texture = ExtResource("4_vxqe4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Feroz"]
+position = Vector2(1, 20)
+shape = SubResource("CapsuleShape2D_ttt4b")
 metadata/_edit_lock_ = true
