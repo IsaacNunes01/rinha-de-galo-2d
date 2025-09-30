@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=13 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
@@ -10,6 +10,15 @@
 radius = 34.0
 height = 116.0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_28kbo"]
+vertices = PackedVector2Array(1142, 642, 8.03125, 642, 9.96094, 9.99219, 1142, 9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, -1, 1152, 652, -2, 652)])
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttt4b"]
+radius = 39.0
+height = 134.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l13kt"]
 size = Vector2(62, 20)
 
@@ -19,12 +28,8 @@ size = Vector2(59, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4ip"]
 size = Vector2(1154, 71)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlrd5"]
-size = Vector2(543, 21)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttt4b"]
-radius = 39.0
-height = 134.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4aas"]
+size = Vector2(535, 11)
 
 [node name="Ringue" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -49,6 +54,26 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso"]
 shape = SubResource("CapsuleShape2D_canuv")
 metadata/_edit_lock_ = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_28kbo")
+
+[node name="Galo Feroz" type="CharacterBody2D" parent="."]
+position = Vector2(980, 482)
+script = ExtResource("4_aa60y")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Galo Feroz"]
+scale = Vector2(0.42278, 0.406639)
+texture = ExtResource("4_vxqe4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Feroz"]
+position = Vector2(1, 20)
+shape = SubResource("CapsuleShape2D_ttt4b")
+metadata/_edit_lock_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Galo Feroz"]
 
 [node name="Suporte oponente" type="StaticBody2D" parent="."]
 position = Vector2(898, 397)
@@ -97,8 +122,8 @@ position = Vector2(612, 213)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cerca central"]
-position = Vector2(-11.5, 0)
-shape = SubResource("RectangleShape2D_qlrd5")
+position = Vector2(-13.5, -1.5)
+shape = SubResource("RectangleShape2D_v4aas")
 metadata/_edit_lock_ = true
 
 [node name="Cerca esquerda" type="StaticBody2D" parent="."]
@@ -119,19 +144,4 @@ metadata/_edit_lock_ = true
 position = Vector2(18, 10)
 scale = Vector2(9.3, 3.3)
 polygon = PackedVector2Array(10.1075, -10.6061, -10.1075, -1.21212, -10, 4.54546, 10, -4.54545)
-metadata/_edit_lock_ = true
-
-[node name="Galo Feroz" type="CharacterBody2D" parent="."]
-position = Vector2(980, 482)
-script = ExtResource("4_aa60y")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Galo Feroz"]
-scale = Vector2(0.42278, 0.406639)
-texture = ExtResource("4_vxqe4")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Feroz"]
-position = Vector2(1, 20)
-shape = SubResource("CapsuleShape2D_ttt4b")
 metadata/_edit_lock_ = true
