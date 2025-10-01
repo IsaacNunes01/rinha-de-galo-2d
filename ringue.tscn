@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=19 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dooykx4ftlkxu" path="res://galoferoz-removebg-preview.png" id="4_vxqe4"]
 [ext_resource type="Script" path="res://besouros.gd" id="6_bl6ua"]
 [ext_resource type="Texture2D" uid="uid://coavrva3vtnuf" path="res://besouro-removebg-preview.png" id="6_rhcn4"]
-[ext_resource type="AudioStream" uid="uid://uq0donjoteoc" path="res://Metallica - Master of puppets.mp3" id="8_w3a4i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_canuv"]
 radius = 34.0
@@ -211,10 +210,8 @@ shape = SubResource("CircleShape2D_0ohn5")
 metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_w3a4i")
 volume_db = 4.197
 autoplay = true
-parameters/looping = true
 
 [connection signal="area_entered" from="Galo Medroso/Galomedroso2d" to="Galo Medroso" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Galo Medroso/Galomedroso2d" to="Galo Feroz" method="_on_area_2d_area_entered"]
