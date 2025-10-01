@@ -1,28 +1,23 @@
-[gd_scene load_steps=19 format=3 uid="uid://d11k6gms7tue1"]
+[gd_scene load_steps=13 format=3 uid="uid://d11k6gms7tue1"]
 
 [ext_resource type="Texture2D" uid="uid://di7d2y8kah1q8" path="res://galomedroso-removebg-preview.png" id="1_1hyog"]
 [ext_resource type="Texture2D" uid="uid://cbw4oo0ithdj3" path="res://RingueDeGalo.jpg" id="1_814x0"]
 [ext_resource type="Script" path="res://galo_medroso.gd" id="2_4mphk"]
 [ext_resource type="Script" path="res://galo_feroz.gd" id="4_aa60y"]
 [ext_resource type="Texture2D" uid="uid://dooykx4ftlkxu" path="res://galoferoz-removebg-preview.png" id="4_vxqe4"]
-[ext_resource type="Script" path="res://besouros.gd" id="6_bl6ua"]
-[ext_resource type="Texture2D" uid="uid://coavrva3vtnuf" path="res://besouro-removebg-preview.png" id="6_rhcn4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_canuv"]
 radius = 34.0
 height = 116.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ok73"]
-radius = 34.0
-height = 116.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_28kbo"]
+vertices = PackedVector2Array(1143.87, 582.961, 1143.12, 643.992, 9.88281, 643, 9.11719, 579.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 569, 1154, 573, 1153, 654, 0, 653), PackedVector2Array(868, 387, 930, 387, 930, 407, 868, 407), PackedVector2Array(268, 391, 327, 391, 327, 406, 268, 406)])
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttt4b"]
 radius = 39.0
 height = 134.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q145o"]
-radius = 40.0
-height = 140.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l13kt"]
 size = Vector2(62, 20)
@@ -36,15 +31,6 @@ size = Vector2(1154, 71)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4aas"]
 size = Vector2(535, 11)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_suevg"]
-a = Vector2(-1, 420)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_rclko"]
-a = Vector2(2, 405)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ohn5"]
-radius = 9.0
-
 [node name="Ringue" type="Node2D"]
 metadata/_edit_lock_ = true
 
@@ -56,8 +42,6 @@ metadata/_edit_lock_ = true
 
 [node name="Galo Medroso" type="CharacterBody2D" parent="."]
 position = Vector2(66, 515)
-collision_layer = 127
-collision_mask = 127
 script = ExtResource("2_4mphk")
 metadata/_edit_lock_ = true
 
@@ -71,17 +55,11 @@ metadata/_edit_lock_ = true
 shape = SubResource("CapsuleShape2D_canuv")
 metadata/_edit_lock_ = true
 
-[node name="Galomedroso2d" type="Area2D" parent="Galo Medroso"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Medroso/Galomedroso2d"]
-shape = SubResource("CapsuleShape2D_2ok73")
-metadata/_edit_lock_ = true
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_28kbo")
 
 [node name="Galo Feroz" type="CharacterBody2D" parent="."]
 position = Vector2(980, 482)
-collision_layer = 127
-collision_mask = 127
 script = ExtResource("4_aa60y")
 metadata/_edit_lock_ = true
 
@@ -96,15 +74,6 @@ shape = SubResource("CapsuleShape2D_ttt4b")
 metadata/_edit_lock_ = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Galo Feroz"]
-
-[node name="Galoferoz2d" type="Area2D" parent="Galo Feroz"]
-position = Vector2(-978, -482)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Galo Feroz/Galoferoz2d"]
-position = Vector2(979, 501)
-shape = SubResource("CapsuleShape2D_q145o")
-metadata/_edit_lock_ = true
 
 [node name="Suporte oponente" type="StaticBody2D" parent="."]
 position = Vector2(898, 397)
@@ -142,8 +111,6 @@ metadata/_edit_lock_ = true
 
 [node name="Chão" type="StaticBody2D" parent="."]
 position = Vector2(577, 608)
-collision_layer = 7
-collision_mask = 7
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chão"]
@@ -178,41 +145,3 @@ position = Vector2(18, 10)
 scale = Vector2(9.3, 3.3)
 polygon = PackedVector2Array(10.1075, -10.6061, -10.1075, -1.21212, -10, 4.54546, 10, -4.54545)
 metadata/_edit_lock_ = true
-
-[node name="Cerca lateral 1" type="StaticBody2D" parent="."]
-position = Vector2(0, 159)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cerca lateral 1"]
-shape = SubResource("SegmentShape2D_suevg")
-
-[node name="Cerca lateral 2" type="StaticBody2D" parent="."]
-position = Vector2(1149, 179)
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cerca lateral 2"]
-shape = SubResource("SegmentShape2D_rclko")
-metadata/_edit_lock_ = true
-
-[node name="Besouros" type="Area2D" parent="."]
-position = Vector2(1123, 99)
-collision_layer = 128
-script = ExtResource("6_bl6ua")
-
-[node name="Sprite2D" type="Sprite2D" parent="Besouros"]
-position = Vector2(-7.51019e-06, -9.09495e-13)
-scale = Vector2(0.0559999, 0.051)
-texture = ExtResource("6_rhcn4")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Besouros"]
-shape = SubResource("CircleShape2D_0ohn5")
-metadata/_edit_lock_ = true
-
-[connection signal="area_entered" from="Galo Medroso/Galomedroso2d" to="Galo Medroso" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Galo Medroso/Galomedroso2d" to="Galo Feroz" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Galo Medroso/Galomedroso2d" to="Galo Feroz" method="_on_area_2d_body_entered"]
-[connection signal="area_entered" from="Galo Feroz/Galoferoz2d" to="Galo Medroso" method="_on_galoferoz_2d_area_entered"]
-[connection signal="body_entered" from="Galo Feroz/Galoferoz2d" to="Galo Medroso" method="_on_area_2d_body_entered"]
-[connection signal="area_entered" from="Besouros" to="Galo Medroso" method="_on_besouros_area_entered"]
-[connection signal="body_entered" from="Besouros" to="Galo Medroso" method="_on_besouros_body_entered"]

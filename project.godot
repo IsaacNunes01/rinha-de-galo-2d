@@ -14,3 +14,15 @@ config/name="Rinha de Galo 2D"
 run/main_scene="res://ringue.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="Galo Medroso"
+2d_physics/layer_2="Galo Feroz"
+2d_physics/layer_3="Chão"
+2d_physics/layer_4="Suporte jogador"
+2d_physics/layer_5="Suporte oponente"
+2d_physics/layer_6="Cerca central"
+2d_physics/layer_7="Cerca direita"
+2d_physics/layer_8="Cerca esquerda"
+2d_physics/layer_9="Besouros"

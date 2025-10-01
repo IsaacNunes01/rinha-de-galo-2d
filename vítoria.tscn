@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://clqfkjrxgohvt"]
+
+[ext_resource type="Texture2D" uid="uid://ryvc5ofb6eur" path="res://vitória.png" id="1_3wnf3"]
+
+[node name="Vítoria" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(581, 315)
+scale = Vector2(0.764323, 0.638672)
+texture = ExtResource("1_3wnf3")

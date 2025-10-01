@@ -23,3 +23,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
+
+func _on_besouros_area_entered(_area: Area2D) -> void:
+		get_tree().change_scene_to_file("res://vítoria.tscn")
+
+
+func _on_galoferoz_2d_area_entered(_area: Area2D) -> void:
+	get_tree().reload_current_scene()
